@@ -1,0 +1,28 @@
+{
+  "name": "vertical-saas-radar",
+  "displayName": "Vertical SaaS Radar",
+  "description": "Product and API shifts across scheduling, CRM, messaging and automation SaaS.",
+  "version": "0.1.0",
+  "publisher": "videirafo",
+  "license": "MIT",
+  "engines": {"vscode": "^1.96.0"},
+  "categories": ["Other"],
+  "keywords": ["saas", "product intelligence", "crm", "scheduling", "whatsapp", "automation", "changelog"],
+  "repository": {"type": "git", "url": "https://github.com/Videirafo/vertical-Saas-radar.git"},
+  "activationEvents": ["onCommand:verticalRadar.openBrief","onCommand:verticalRadar.refresh","onCommand:verticalRadar.openDemo"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {"command":"verticalRadar.openBrief","title":"SaaS Radar: Open Latest Brief"},
+      {"command":"verticalRadar.refresh","title":"SaaS Radar: Refresh Signals"},
+      {"command":"verticalRadar.openDemo","title":"SaaS Radar: Open Live Demo"}
+    ],
+    "configuration": {
+      "title": "Vertical SaaS Radar",
+      "properties": {
+        "verticalRadar.briefUrl": {"type":"string","default":"https://raw.githubusercontent.com/Videirafo/vertical-Saas-radar/main/data/latest.json","description":"Public JSON briefing endpoint."},
+        "verticalRadar.demoUrl": {"type":"string","default":"https://vertical-saas-radar.onrender.com","description":"Public browser dashboard URL."}
+      }
+    }
+  }
+}
