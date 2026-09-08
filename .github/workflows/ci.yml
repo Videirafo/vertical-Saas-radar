@@ -34,6 +34,17 @@ jobs:
           curl --fail --silent http://127.0.0.1:3000/api/brief | grep -q '"schema_version": 1'
           curl --fail --silent http://127.0.0.1:3000/api/sources | grep -q '"kind":"github-releases"'
           curl --fail --silent http://127.0.0.1:3000/ | grep -q 'Know what changed before it changes your roadmap.'
+          curl --fail --silent http://127.0.0.1:3000/llms.txt | grep -q 'Vertical SaaS Radar'
+          curl --fail --silent http://127.0.0.1:3000/sitemap.xml | grep -q '<lastmod>2026-09-08</lastmod>'
+          curl --fail --silent http://127.0.0.1:3000/AGENTS.md | grep -q '## Installation'
+          curl --fail --silent http://127.0.0.1:3000/openapi.json | grep -q '"openapi": "3.1.0"'
+          curl --fail --silent -H 'Accept: text/markdown' http://127.0.0.1:3000/ | grep -q '# Vertical SaaS Radar'
+      - name: Validate packaged VS Code extension
+        run: |
+          test -f dist/vertical-saas-radar-0.1.0.vsix
+          unzip -l dist/vertical-saas-radar-0.1.0.vsix | grep -q 'extension/package.json'
+          unzip -p dist/vertical-saas-radar-0.1.0.vsix extension/package.json | grep -q '"displayName": "Vertical SaaS Radar"'
+          ! unzip -p dist/vertical-saas-radar-0.1.0.vsix extension/package.json | grep -qi 'vertical-ai'
       - name: Show server log on failure
         if: failure()
         run: cat /tmp/vertical-saas-radar.log || true
