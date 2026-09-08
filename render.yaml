@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: vertical-saas-radar
+    runtime: node
+    plan: free
+    buildCommand: npm test && npm run brief:sample
+    startCommand: node apps/web/server.mjs
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass

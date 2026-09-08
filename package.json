@@ -1,0 +1,17 @@
+{
+  "name": "vertical-saas-radar",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Open-source product intelligence for scheduling, CRM, messaging and automation SaaS.",
+  "scripts": {
+    "dev": "node apps/web/server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "collect": "node scripts/collect-github-releases.mjs",
+    "brief": "node scripts/build-brief.mjs",
+    "brief:sample": "node scripts/build-brief.mjs data/signals.sample.json"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

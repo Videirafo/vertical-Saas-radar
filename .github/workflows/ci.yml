@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+      - name: Test scoring and brief contract
+        run: npm test
+      - name: Build sample brief
+        run: npm run brief:sample
+      - name: Start web service
+        run: node apps/web/server.mjs > /tmp/vertical-saas-radar.log 2>&1 & echo $! > /tmp/vertical-saas-radar.pid
+      - name: HTTP smoke test
+        run: |
+          for attempt in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:3000/health > /tmp/health.json; then
+              break
+            fi
+            sleep 1
+          done
+          grep -q '"status":"ok"' /tmp/health.json
+          curl --fail --silent http://127.0.0.1:3000/api/brief | grep -q '"schema_version": 1'
+          curl --fail --silent http://127.0.0.1:3000/api/sources | grep -q '"kind":"github-releases"'
+          curl --fail --silent http://127.0.0.1:3000/ | grep -q 'Know what changed before it changes your roadmap.'
+      - name: Show server log on failure
+        if: failure()
+        run: cat /tmp/vertical-saas-radar.log || true

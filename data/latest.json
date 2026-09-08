@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-08T17:12:04.413Z",
+  "meaningful": [
+    {
+      "source": "n8n",
+      "title": "Breaking webhook migration for an integration surface",
+      "url": "https://github.com/n8n-io/n8n/releases",
+      "published_at": "2026-09-07T12:53:00Z",
+      "body": "API and webhook behavior changed. Migration is required for affected workflows and OAuth integrations.",
+      "impact": {"roadmap":true,"packaging":false,"positioning":false,"integrations":true,"gtm":false},
+      "score": 89,
+      "hype": "low",
+      "meaningful": true,
+      "source_name": "n8n"
+    },
+    {
+      "source": "cal",
+      "title": "New scheduling API limits for selected plans",
+      "url": "https://github.com/calcom/cal.com/releases",
+      "published_at": "2026-09-07T09:15:00Z",
+      "body": "Scheduling API quota and plan limits were updated for selected tiers.",
+      "impact": {"roadmap":true,"packaging":true,"positioning":false,"integrations":true,"gtm":false},
+      "score": 65,
+      "hype": "low",
+      "meaningful": true,
+      "source_name": "Cal.com"
+    },
+    {
+      "source": "chatwoot",
+      "title": "Conversation filter copy update",
+      "url": "https://github.com/chatwoot/chatwoot/releases",
+      "published_at": "2026-09-06T18:00:00Z",
+      "body": "Minor copy and presentation cleanup with no API or workflow changes.",
+      "impact": {"roadmap":true,"packaging":false,"positioning":false,"integrations":true,"gtm":false},
+      "score": 53,
+      "hype": "low",
+      "meaningful": true,
+      "source_name": "Chatwoot"
+    }
+  ],
+  "watchlist": [
+    {
+      "source": "evolution",
+      "title": "Revolutionary world-first magic messaging experience",
+      "url": "https://github.com/evolution-foundation/evolution-api/releases",
+      "published_at": "2026-09-06T12:00:00Z",
+      "body": "A breakthrough announcement with no migration, API, webhook or pricing detail.",
+      "impact": {"roadmap":false,"packaging":true,"positioning":false,"integrations":true,"gtm":false},
+      "score": 32,
+      "hype": "high",
+      "meaningful": false,
+      "source_name": "Evolution API"
+    }
+  ],
+  "summary": {"total":4,"meaningful":3,"watchlist":1,"hype_filtered":1}
+}

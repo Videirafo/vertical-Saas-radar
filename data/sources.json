@@ -1,0 +1,8 @@
+[
+  {"id":"n8n","name":"n8n","kind":"github-releases","repo":"n8n-io/n8n","category":"automation","why":"workflow automation, integrations and MCP"},
+  {"id":"cal","name":"Cal.com","kind":"github-releases","repo":"calcom/cal.com","category":"scheduling","why":"appointment and scheduling infrastructure"},
+  {"id":"twenty","name":"Twenty","kind":"github-releases","repo":"twentyhq/twenty","category":"crm","why":"open CRM product and integration changes"},
+  {"id":"chatwoot","name":"Chatwoot","kind":"github-releases","repo":"chatwoot/chatwoot","category":"messaging","why":"customer support, live chat and messaging workflows"},
+  {"id":"evolution","name":"Evolution API","kind":"github-releases","repo":"evolution-foundation/evolution-api","category":"messaging","why":"WhatsApp and multi-channel integration surface"},
+  {"id":"changedetection","name":"changedetection.io","kind":"github-releases","repo":"dgtlmoon/changedetection.io","category":"monitoring","why":"change-detection product and integration patterns"}
+]

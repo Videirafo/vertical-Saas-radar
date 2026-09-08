@@ -1,0 +1,33 @@
+name: Weekly Radar
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 21 * * 1'
+
+permissions:
+  contents: write
+
+jobs:
+  build-weekly-brief:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+      - name: Collect recent public GitHub releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RADAR_LOOKBACK_DAYS: 8
+        run: npm run collect
+      - name: Build deterministic weekly brief
+        run: npm run brief
+      - name: Commit refreshed radar data
+        run: |
+          git config user.name 'vertical-radar-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/signals.json data/latest.json data/latest.md
+          git diff --cached --quiet && exit 0
+          git commit -m 'data: refresh weekly SaaS radar'
+          git push
