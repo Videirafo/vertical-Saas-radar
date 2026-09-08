@@ -1,0 +1,18 @@
+# Vertical SaaS Radar
+
+> Evidence-linked product intelligence for scheduling, CRM, messaging and automation SaaS.
+
+## Product
+- [Home](https://vertical-saas-radar.onrender.com/): Public radar dashboard and current brief.
+- [Markdown overview](https://vertical-saas-radar.onrender.com/index.md): Clean text version of the product page.
+- [Glossary](https://vertical-saas-radar.onrender.com/glossary): Product-intelligence terminology used by the radar.
+- [OpenAPI](https://vertical-saas-radar.onrender.com/openapi.json): Read-only HTTP API contract.
+
+## Data
+- [Latest brief](https://vertical-saas-radar.onrender.com/api/brief): Current machine-readable brief.
+- [Source registry](https://vertical-saas-radar.onrender.com/api/sources): Public monitored source catalog.
+- [Sitemap](https://vertical-saas-radar.onrender.com/sitemap.md): Human- and agent-readable site map.
+
+## Optional
+- [Full context](https://vertical-saas-radar.onrender.com/llms-full.txt): Expanded architecture, scoring and usage context.
+- [Agent guide](https://vertical-saas-radar.onrender.com/AGENTS.md): Installation, configuration, usage and examples for coding agents.

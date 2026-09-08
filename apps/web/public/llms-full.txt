@@ -1,0 +1,27 @@
+# Vertical SaaS Radar
+
+> Vertical SaaS Radar is an open-source product-intelligence tool that turns public release signals into an evidence-linked weekly brief.
+
+## Problem
+Teams building products on top of scheduling, CRM, messaging and automation platforms can be affected by upstream API changes, pricing moves, quota changes, permissions, migrations and new channel capabilities. Reading every release feed manually is slow and noisy.
+
+## Method
+The baseline collector reads public sources, normalizes each change and applies deterministic consequence scoring. It evaluates potential impact on roadmap, packaging, positioning, integrations and go-to-market. Promotional language lowers confidence; concrete breaking changes, migrations and integration changes increase consequence weight. Every item retains a canonical evidence URL.
+
+## Interfaces
+- Browser dashboard: https://vertical-saas-radar.onrender.com/
+- JSON brief: https://vertical-saas-radar.onrender.com/api/brief
+- Source registry: https://vertical-saas-radar.onrender.com/api/sources
+- OpenAPI: https://vertical-saas-radar.onrender.com/openapi.json
+- Markdown overview: https://vertical-saas-radar.onrender.com/index.md
+- VS Code extension source: https://github.com/Videirafo/vertical-Saas-radar/tree/main/apps/vscode
+- Installable VSIX: https://github.com/Videirafo/vertical-Saas-radar/raw/main/dist/vertical-saas-radar-0.1.0.vsix
+
+## Schedule
+The repository workflow rebuilds the brief every Monday at 21:00 UTC, corresponding to 18:00 in America/Sao_Paulo.
+
+## Safety and source boundaries
+The default project uses public evidence only, does not require a model provider, does not bypass access controls, and does not republish third-party documentation archives.
+
+## Sitemap
+See https://vertical-saas-radar.onrender.com/sitemap.md

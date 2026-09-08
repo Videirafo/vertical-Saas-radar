@@ -1,0 +1,92 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Vertical SaaS Radar API",
+    "version": "0.1.0",
+    "description": "Read-only product-intelligence brief and source registry."
+  },
+  "servers": [
+    {
+      "url": "https://vertical-saas-radar.onrender.com"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Service health",
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {"type": "string"},
+                    "service": {"type": "string"},
+                    "version": {"type": "string"}
+                  },
+                  "required": ["status", "service", "version"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/brief": {
+      "get": {
+        "summary": "Current radar brief",
+        "responses": {
+          "200": {
+            "description": "Current evidence-linked brief",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "schema_version": {"type": "integer"},
+                    "generated_at": {"type": "string"},
+                    "meaningful": {"type": "array", "items": {"type": "object"}},
+                    "watchlist": {"type": "array", "items": {"type": "object"}},
+                    "summary": {"type": "object"}
+                  },
+                  "required": ["schema_version", "generated_at", "meaningful", "watchlist", "summary"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/sources": {
+      "get": {
+        "summary": "Monitored public source registry",
+        "responses": {
+          "200": {
+            "description": "Source registry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {"type": "string"},
+                      "name": {"type": "string"},
+                      "kind": {"type": "string"},
+                      "repo": {"type": "string"},
+                      "category": {"type": "string"},
+                      "why": {"type": "string"}
+                    },
+                    "required": ["id", "name", "kind"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -14,6 +14,24 @@ Vertical SaaS Radar turns public release signals into a short, evidence-linked b
 
 The baseline is deterministic and testable. No model provider or API key is required.
 
+## Live demo
+
+**[Open Vertical SaaS Radar →](https://vertical-saas-radar.onrender.com/)**
+
+- Current brief: https://vertical-saas-radar.onrender.com/api/brief
+- Source registry: https://vertical-saas-radar.onrender.com/api/sources
+- OpenAPI: https://vertical-saas-radar.onrender.com/openapi.json
+
+## Install the VS Code extension
+
+Download **[vertical-saas-radar-0.1.0.vsix](./dist/vertical-saas-radar-0.1.0.vsix)**, then install it from the terminal:
+
+```bash
+code --install-extension vertical-saas-radar-0.1.0.vsix
+```
+
+Or use **Extensions → ··· → Install from VSIX…** in VS Code. No account or API key is required to read the public brief.
+
 ## Try it
 
 ### Browser
@@ -119,8 +137,8 @@ Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request. Source 
 - [x] VS Code extension source;
 - [x] Monday scheduled brief;
 - [x] GitHub release collector;
-- [ ] public Render deployment;
-- [ ] packaged `.vsix` release;
+- [x] public Render deployment;
+- [x] packaged `.vsix` release artifact;
 - [ ] official changelog adapters beyond GitHub releases;
 - [ ] source freshness and health reporting;
 - [ ] contributor-maintained source catalog;
