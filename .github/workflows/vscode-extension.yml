@@ -1,0 +1,58 @@
+name: VS Code Extension
+
+on:
+  pull_request:
+    paths:
+      - 'apps/vscode/**'
+      - 'dist/**'
+      - '.github/workflows/vscode-extension.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'apps/vscode/**'
+      - 'dist/**'
+      - '.github/workflows/vscode-extension.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+
+      - name: Validate extension source
+        run: |
+          node --check apps/vscode/extension.js
+          node -e "const p=require('./apps/vscode/package.json'); if(p.name!=='vertical-saas-radar' || p.displayName!=='Vertical SaaS Radar' || p.version!=='0.1.0') process.exit(1)"
+
+      - name: Package extension from source
+        working-directory: apps/vscode
+        run: npx --yes @vscode/vsce@3.6.0 package --out ../../artifacts/vertical-saas-radar-0.1.0.vsix
+
+      - name: Validate generated VSIX
+        run: |
+          test -s artifacts/vertical-saas-radar-0.1.0.vsix
+          unzip -l artifacts/vertical-saas-radar-0.1.0.vsix | grep -q 'extension/package.json'
+          unzip -l artifacts/vertical-saas-radar-0.1.0.vsix | grep -q 'extension/extension.js'
+          unzip -p artifacts/vertical-saas-radar-0.1.0.vsix extension/package.json | grep -q '"displayName": "Vertical SaaS Radar"'
+          ! unzip -p artifacts/vertical-saas-radar-0.1.0.vsix extension/package.json | grep -qi 'vertical-ai'
+
+      - name: Validate checked-in install artifact
+        run: |
+          test -s dist/vertical-saas-radar-0.1.0.vsix
+          unzip -p dist/vertical-saas-radar-0.1.0.vsix extension/package.json > /tmp/checked-manifest.json
+          unzip -p artifacts/vertical-saas-radar-0.1.0.vsix extension/package.json > /tmp/generated-manifest.json
+          diff -u /tmp/checked-manifest.json /tmp/generated-manifest.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vertical-saas-radar-vsix
+          path: artifacts/vertical-saas-radar-0.1.0.vsix
+          if-no-files-found: error
