@@ -47,12 +47,20 @@ jobs:
           unzip -p artifacts/vertical-saas-radar-0.1.0.vsix extension/package.json | grep -q '"displayName": "Vertical SaaS Radar"'
           ! unzip -p artifacts/vertical-saas-radar-0.1.0.vsix extension/package.json | grep -qi 'vertical-ai'
 
-      - name: Validate checked-in install artifact
+      - name: Validate checked-in install artifact against source
         run: |
           test -s dist/vertical-saas-radar-0.1.0.vsix
           unzip -p dist/vertical-saas-radar-0.1.0.vsix extension/package.json > /tmp/checked-manifest.json
           unzip -p artifacts/vertical-saas-radar-0.1.0.vsix extension/package.json > /tmp/generated-manifest.json
-          diff -u /tmp/checked-manifest.json /tmp/generated-manifest.json
+          node - <<'NODE'
+          const assert = require('node:assert/strict');
+          const fs = require('node:fs');
+          const checked = JSON.parse(fs.readFileSync('/tmp/checked-manifest.json', 'utf8'));
+          const generated = JSON.parse(fs.readFileSync('/tmp/generated-manifest.json', 'utf8'));
+          assert.deepStrictEqual(checked, generated);
+          NODE
+          unzip -p dist/vertical-saas-radar-0.1.0.vsix extension/extension.js > /tmp/checked-extension.js
+          cmp --silent apps/vscode/extension.js /tmp/checked-extension.js
 
       - uses: actions/upload-artifact@v4
         with:
