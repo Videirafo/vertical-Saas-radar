@@ -33,14 +33,17 @@ jobs:
           node -e "const p=require('./apps/vscode/package.json'); if(p.name!=='vertical-saas-radar' || p.displayName!=='Vertical SaaS Radar' || p.version!=='0.1.0') process.exit(1)"
 
       - name: Package extension from source
-        working-directory: apps/vscode
-        run: npx --yes @vscode/vsce@3.6.0 package --out ../../artifacts/vertical-saas-radar-0.1.0.vsix
+        run: |
+          mkdir -p artifacts
+          cd apps/vscode
+          npx --yes @vscode/vsce@3.6.0 package --out ../../artifacts/vertical-saas-radar-0.1.0.vsix
 
       - name: Validate generated VSIX
         run: |
           test -s artifacts/vertical-saas-radar-0.1.0.vsix
           unzip -l artifacts/vertical-saas-radar-0.1.0.vsix | grep -q 'extension/package.json'
           unzip -l artifacts/vertical-saas-radar-0.1.0.vsix | grep -q 'extension/extension.js'
+          unzip -l artifacts/vertical-saas-radar-0.1.0.vsix | grep -q 'extension/LICENSE'
           unzip -p artifacts/vertical-saas-radar-0.1.0.vsix extension/package.json | grep -q '"displayName": "Vertical SaaS Radar"'
           ! unzip -p artifacts/vertical-saas-radar-0.1.0.vsix extension/package.json | grep -qi 'vertical-ai'
 
