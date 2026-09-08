@@ -1,0 +1,103 @@
+name: Verified Demo Assets
+
+on:
+  pull_request:
+    paths:
+      - 'apps/web/**'
+      - 'data/**'
+      - '.github/scripts/capture-demo.mjs'
+      - '.github/scripts/build-demo-gif.py'
+      - '.github/workflows/demo-assets.yml'
+      - 'README.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Prepare deterministic brief
+        run: |
+          npm test
+          npm run brief:sample
+
+      - name: Start local web app
+        run: |
+          node apps/web/server.mjs > /tmp/radar-demo.log 2>&1 &
+          echo $! > /tmp/radar-demo.pid
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:3000/health > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/radar-demo.log
+          exit 1
+
+      - name: Install browser tooling
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+          python -m pip install 'Pillow==11.3.0'
+
+      - name: Capture real browser states
+        run: node .github/scripts/capture-demo.mjs
+
+      - name: Build compact GIF
+        run: python .github/scripts/build-demo-gif.py
+
+      - name: Validate demo assets
+        run: |
+          test -s assets/demo/vertical-saas-radar.png
+          test -s assets/demo/vertical-saas-radar.gif
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          png = Image.open('assets/demo/vertical-saas-radar.png')
+          gif = Image.open('assets/demo/vertical-saas-radar.gif')
+          assert png.width >= 1200
+          assert png.height >= 800
+          assert getattr(gif, 'n_frames', 1) >= 4
+          assert Path('assets/demo/vertical-saas-radar.gif').stat().st_size < 8_000_000
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-demo-assets
+          path: |
+            assets/demo/vertical-saas-radar.png
+            assets/demo/vertical-saas-radar.gif
+          if-no-files-found: error
+
+      - name: Commit verified assets to PR branch
+        if: github.event_name == 'pull_request'
+        run: |
+          git config user.name 'vertical-radar-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add assets/demo/vertical-saas-radar.png assets/demo/vertical-saas-radar.gif
+          if git diff --cached --quiet; then
+            echo 'Demo assets unchanged.'
+            exit 0
+          fi
+          git commit -m 'docs: refresh verified demo assets'
+          git push origin HEAD:${{ github.head_ref }}
+
+      - name: Show server log on failure
+        if: failure()
+        run: cat /tmp/radar-demo.log || true
