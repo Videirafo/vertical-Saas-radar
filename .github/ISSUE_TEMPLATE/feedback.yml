@@ -1,0 +1,43 @@
+name: Product feedback
+description: Tell us what was unclear, useful, missing, or hard to use.
+title: "feedback: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for trying Vertical SaaS Radar. Specific, reproducible feedback is the most useful.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where did you use it?
+      options:
+        - Public web demo
+        - VS Code extension
+        - API
+        - Local clone
+        - Weekly brief
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: What were you trying to do?
+      placeholder: Describe the task in one or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: friction
+    attributes:
+      label: What was unclear, missing, or harder than expected?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What would have made it better?
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit (optional)
