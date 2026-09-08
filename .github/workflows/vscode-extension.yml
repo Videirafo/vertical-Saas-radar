@@ -47,6 +47,13 @@ jobs:
           unzip -p artifacts/vertical-saas-radar-0.1.0.vsix extension/package.json | grep -q '"displayName": "Vertical SaaS Radar"'
           ! unzip -p artifacts/vertical-saas-radar-0.1.0.vsix extension/package.json | grep -qi 'vertical-ai'
 
+      - name: Upload generated VSIX
+        uses: actions/upload-artifact@v4
+        with:
+          name: vertical-saas-radar-vsix
+          path: artifacts/vertical-saas-radar-0.1.0.vsix
+          if-no-files-found: error
+
       - name: Validate checked-in install artifact against source
         run: |
           test -s dist/vertical-saas-radar-0.1.0.vsix
@@ -61,9 +68,3 @@ jobs:
           NODE
           unzip -p dist/vertical-saas-radar-0.1.0.vsix extension/extension.js > /tmp/checked-extension.js
           cmp --silent apps/vscode/extension.js /tmp/checked-extension.js
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: vertical-saas-radar-vsix
-          path: artifacts/vertical-saas-radar-0.1.0.vsix
-          if-no-files-found: error
