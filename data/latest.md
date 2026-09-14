@@ -1,30 +1,35 @@
 # Vertical SaaS Radar — Weekly Brief
 
-Generated: 2026-09-08T17:12:04.413Z
+Generated: 2026-09-14T23:33:00.001Z
 
 ## Consequential shifts
 
-### n8n: Breaking webhook migration for an integration surface
-- Consequence score: **89/100**
-- Impacts: roadmap, integrations
+### Twenty: twenty/v2.39.0
+- Consequence score: **100/100**
+- Impacts: roadmap, packaging, positioning, integrations
 - Hype indicator: low
-- Published: 2026-09-07T12:53:00Z
-- Evidence: https://github.com/n8n-io/n8n/releases
+- Published: 2026-09-09T15:12:21Z
+- Evidence: https://github.com/twentyhq/twenty/releases/tag/twenty/v2.39.0
 
-### Cal.com: New scheduling API limits for selected plans
+### Twenty: sdk/v2.39.0
 - Consequence score: **65/100**
 - Impacts: roadmap, packaging, integrations
 - Hype indicator: low
-- Published: 2026-09-07T09:15:00Z
-- Evidence: https://github.com/calcom/cal.com/releases
-
-### Chatwoot: Conversation filter copy update
-- Consequence score: **53/100**
-- Impacts: roadmap, integrations
-- Hype indicator: low
-- Published: 2026-09-06T18:00:00Z
-- Evidence: https://github.com/chatwoot/chatwoot/releases
+- Published: 2026-09-09T15:12:30Z
+- Evidence: https://github.com/twentyhq/twenty/releases/tag/sdk/v2.39.0
 
 ## Watchlist
 
-- Evolution API: Revolutionary world-first magic messaging experience — 32/100 — https://github.com/evolution-foundation/evolution-api/releases
+- n8n: stable — 41/100 — https://github.com/n8n-io/n8n/releases/tag/stable
+- n8n: n8n@2.38.7 — 41/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.38.7
+- changedetection.io: 0.60.4 — 41/100 — https://github.com/dgtlmoon/changedetection.io/releases/tag/0.60.4
+- n8n: n8n@2.39.2 — 32/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.39.2
+- changedetection.io: 0.60.6 — 20/100 — https://github.com/dgtlmoon/changedetection.io/releases/tag/0.60.6
+- changedetection.io: 0.60.5 — 20/100 — https://github.com/dgtlmoon/changedetection.io/releases/tag/0.60.5
+- n8n: beta — 20/100 — https://github.com/n8n-io/n8n/releases/tag/beta
+- n8n: n8n@2.39.5 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.39.5
+- n8n: n8n@2.39.4 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.39.4
+- n8n: n8n@2.39.3 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.39.3
+- n8n: n8n@2.38.6 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.38.6
+- n8n: n8n@1.123.79 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%401.123.79
+- n8n: n8n@2.38.5 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.38.5
