@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "skill": "videira-launch",
+  "project": "Vertical SaaS Radar",
+  "kind": "product-intelligence",
+  "productSurface": [
+    "web",
+    "signals",
+    "release-collection",
+    "briefs",
+    "research"
+  ],
+  "demo": {
+    "baseUrl": null,
+    "primaryPath": "apps/web",
+    "preferRealUI": true,
+    "videoRecommended": true
+  },
+  "channels": [
+    "linkedin",
+    "x",
+    "youtube-shorts",
+    "github-release"
+  ],
+  "privacy": {
+    "useSyntheticData": false,
+    "forbid": [
+      "secrets",
+      "tokens",
+      "credentials",
+      "private-source-data",
+      "internal-urls"
+    ]
+  },
+  "evidence": {
+    "require": [
+      "repository",
+      "sha",
+      "branch",
+      "feature",
+      "ciState",
+      "deploymentState"
+    ],
+    "includeRecentCommits": 5
+  },
+  "publishing": {
+    "automatic": false,
+    "requiresApproval": true
+  },
+  "outputDirectory": "launch-output-{timestamp}"
+}
