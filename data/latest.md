@@ -1,86 +1,54 @@
 # Vertical SaaS Radar — Weekly Brief
 
-Generated: 2026-10-27T00:07:16.494Z
+Generated: 2026-11-03T02:42:25.887Z
 
 ## Consequential shifts
 
-### Twenty: twenty/v2.51.0
+### Twenty: sdk/v2.54.0
 - Consequence score: **100/100**
-- Impacts: roadmap, packaging, integrations, gtm
+- Impacts: roadmap, integrations, gtm
 - Hype indicator: low
-- Published: 2026-10-25T09:46:28Z
-- Evidence: https://github.com/twentyhq/twenty/releases/tag/twenty/v2.51.0
+- Published: 2026-10-30T21:49:38Z
+- Evidence: https://github.com/twentyhq/twenty/releases/tag/sdk/v2.54.0
 
-### Twenty: twenty/v2.50.0
+### Twenty: twenty/v2.54.0
 - Consequence score: **100/100**
 - Impacts: roadmap, packaging, positioning, integrations, gtm
 - Hype indicator: low
-- Published: 2026-10-21T10:13:13Z
-- Evidence: https://github.com/twentyhq/twenty/releases/tag/twenty/v2.50.0
+- Published: 2026-10-30T21:49:36Z
+- Evidence: https://github.com/twentyhq/twenty/releases/tag/twenty/v2.54.0
 
-### Chatwoot: v4.19.0
+### Twenty: sdk/v2.53.1
 - Consequence score: **100/100**
 - Impacts: roadmap, packaging, positioning, integrations
 - Hype indicator: low
-- Published: 2026-10-20T12:52:53Z
-- Evidence: https://github.com/chatwoot/chatwoot/releases/tag/v4.19.0
+- Published: 2026-10-30T12:39:51Z
+- Evidence: https://github.com/twentyhq/twenty/releases/tag/sdk/v2.53.1
 
-### Twenty: twenty/v2.49.0
+### Twenty: twenty/v2.53.1
+- Consequence score: **100/100**
+- Impacts: roadmap, packaging, integrations
+- Hype indicator: low
+- Published: 2026-10-30T12:39:38Z
+- Evidence: https://github.com/twentyhq/twenty/releases/tag/twenty/v2.53.1
+
+### Twenty: twenty/v2.52.0
 - Consequence score: **100/100**
 - Impacts: roadmap, packaging, integrations, gtm
 - Hype indicator: low
-- Published: 2026-10-19T14:53:14Z
-- Evidence: https://github.com/twentyhq/twenty/releases/tag/twenty/v2.49.0
-
-### Twenty: sdk/v2.50.0
-- Consequence score: **86/100**
-- Impacts: roadmap, packaging, positioning, integrations
-- Hype indicator: low
-- Published: 2026-10-25T09:34:02Z
-- Evidence: https://github.com/twentyhq/twenty/releases/tag/sdk/v2.50.0
-
-### Chatwoot: v4.19.1
-- Consequence score: **83/100**
-- Impacts: roadmap, packaging, integrations
-- Hype indicator: low
-- Published: 2026-10-24T04:48:08Z
-- Evidence: https://github.com/chatwoot/chatwoot/releases/tag/v4.19.1
-
-### Twenty: sdk/v2.49.0
-- Consequence score: **80/100**
-- Impacts: roadmap, integrations
-- Hype indicator: low
-- Published: 2026-10-19T14:53:16Z
-- Evidence: https://github.com/twentyhq/twenty/releases/tag/sdk/v2.49.0
-
-### n8n: beta
-- Consequence score: **50/100**
-- Impacts: roadmap
-- Hype indicator: low
-- Published: 2026-10-26T06:24:44Z
-- Evidence: https://github.com/n8n-io/n8n/releases/tag/beta
-
-### n8n: n8n@2.45.4
-- Consequence score: **50/100**
-- Impacts: roadmap
-- Hype indicator: low
-- Published: 2026-10-26T06:24:42Z
-- Evidence: https://github.com/n8n-io/n8n/releases/tag/n8n%402.45.4
-
-### n8n: n8n@2.45.2
-- Consequence score: **50/100**
-- Impacts: integrations
-- Hype indicator: low
-- Published: 2026-10-22T09:27:05Z
-- Evidence: https://github.com/n8n-io/n8n/releases/tag/n8n%402.45.2
+- Published: 2026-10-27T16:54:00Z
+- Evidence: https://github.com/twentyhq/twenty/releases/tag/twenty/v2.52.0
 
 ## Watchlist
 
+- n8n: n8n@2.46.3 — 41/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.46.3
 - changedetection.io: 0.60.10 — 41/100 — https://github.com/dgtlmoon/changedetection.io/releases/tag/0.60.10
 - n8n: stable — 32/100 — https://github.com/n8n-io/n8n/releases/tag/stable
-- n8n: n8n@2.44.7 — 32/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.44.7
-- n8n: n8n@1.123.88 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%401.123.88
-- n8n: n8n@1.123.87 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%401.123.87
-- n8n: n8n@2.45.3 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.45.3
-- n8n: n8n@1.123.86 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%401.123.86
-- n8n: n8n@2.44.6 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.44.6
+- n8n: n8n@2.45.7 — 32/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.45.7
+- n8n: beta — 29/100 — https://github.com/n8n-io/n8n/releases/tag/beta
+- n8n: n8n@2.46.4 — 29/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.46.4
+- n8n: n8n@2.45.7-exp.g86c6a0b7 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.45.7-exp.g86c6a0b7
+- n8n: n8n@1.123.92 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%401.123.92
+- n8n: n8n@1.123.91 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%401.123.91
+- n8n: n8n@1.123.90 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%401.123.90
+- n8n: n8n@2.45.6 — 20/100 — https://github.com/n8n-io/n8n/releases/tag/n8n%402.45.6
